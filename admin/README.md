@@ -1,8 +1,44 @@
-# React + Vite
+# 🛠️ Fashion Wear — Admin Panel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **Admin Panel** for [Fashion Wear](https://fashion-wear-git-main-mrgupta04s-projects.vercel.app/), a MERN stack-based clothing e-commerce platform.  
+This panel is designed **exclusively for store administrators** to manage products, orders, and monitor user activity securely.
 
-Currently, two official plugins are available:
+> ⚠️ **Note:** This dashboard is restricted to authorized admin users only.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 🔐 Admin Panel Features
+
+- 📦 **Product Management**
+  - Add, edit, and delete products
+  - Upload product images with category and pricing
+
+- 📁 **Category Management**
+  - Organize clothing into collections and categories
+
+- 📬 **Order Management**
+  - View all customer orders
+  - Update order statuses: Processing, Shipped, Delivered
+
+- 📊 **Dashboard Metrics**
+  - Total orders, products, users
+  - Real-time store activity
+
+- 🧑‍💼 **User Insights**
+  - List of all registered users
+  - View customer activity and order history
+
+- 🖼️ **Cloud Image Uploads**
+  - Managed with Cloudinary and Multer
+
+- 🔐 **JWT-secured Admin Login**
+  - Protected routes and authenticated actions
+
+---
+
+
+🌐 Live Admin Panel Deployment
+🟢 Frontend Live Site:
+https://fashion-wear-git-main-mrgupta04s-projects.vercel.app
+
+
