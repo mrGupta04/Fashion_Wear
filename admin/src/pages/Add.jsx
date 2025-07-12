@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import {assets} from '../assets/assets'
+import { assets } from '../assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
 import { toast } from 'react-toastify'
 
-const Add = ({token}) => {
+const Add = ({ token }) => {
   const [image1, setImage1] = useState(false)
   const [image2, setImage2] = useState(false)
   const [image3, setImage3] = useState(false)
@@ -17,9 +17,61 @@ const Add = ({token}) => {
   const [subCategory, setSubCategory] = useState("Topwear")
   const [bestseller, setBestseller] = useState(false)
   const [sizes, setSizes] = useState([])
-  const [colors, setColors] = useState(["Black", "White"]) // Default colors
+  const [colors, setColors] = useState(["Black", "White"])
 
-  const availableColors = ["Black", "White", "Red", "Blue", "Green", "Yellow", "Gray", "Pink","Maroon","Purple","Skycolor"]
+  const availableColors = [
+    // 🖤 Neutrals & Basics
+    "Black",
+    "White",
+    "Light Grey",
+    "Charcoal Grey",
+    "Beige",
+    "Cream",
+    "Navy Blue",
+    "Olive",
+    "Tan",
+    "Chocolate",
+    "Coffee",
+
+    // 🌈 Primary & Secondary Colors
+    "Red",
+    "Blue",
+    "Yellow",
+    "Green",
+    "Orange",
+    "Purple",
+
+    // 🎨 Pastel Colors
+    "Baby Blue",
+    "Powder Blue",
+    "Lavender",
+    "Lilac",
+    "Mint Green",
+    "Peach",
+    "Baby Pink",
+    "Soft Yellow",
+    "Neon Green",
+    "Lime",
+    "Coral",
+
+    // 🌒 Dark & Deep Tones
+    "Maroon",
+    "Midnight Blue",
+    "Charcoal",
+    "Gold",
+    "Silver",
+    "Rose Gold",
+    "Bronze",
+    "Metallic Blue",
+
+    "Sky Blue",
+    "Burnt Orange",
+    "Ice Blue",
+    "Lemon",
+    "Slate",
+    
+  ]
+
 
   const onSubmitHandler = async (e) => {
     e.preventDefault()
@@ -41,7 +93,7 @@ const Add = ({token}) => {
       image3 && formData.append("image3", image3)
       image4 && formData.append("image4", image4)
 
-      const response = await axios.post(backendUrl + "/api/product/add", formData, {headers: {token}})
+      const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
 
       if (response.data.success) {
         toast.success(response.data.message)
@@ -65,9 +117,9 @@ const Add = ({token}) => {
   }
 
   const handleColorToggle = (color) => {
-    setColors(prev => 
-      prev.includes(color) 
-        ? prev.filter(c => c !== color) 
+    setColors(prev =>
+      prev.includes(color)
+        ? prev.filter(c => c !== color)
         : [...prev, color]
     )
   }
@@ -80,19 +132,19 @@ const Add = ({token}) => {
         <div className='flex gap-2'>
           <label htmlFor="image1">
             <img className='w-20' src={!image1 ? assets.upload_area : URL.createObjectURL(image1)} alt="" />
-            <input onChange={(e)=>setImage1(e.target.files[0])} type="file" id="image1" hidden/>
+            <input onChange={(e) => setImage1(e.target.files[0])} type="file" id="image1" hidden />
           </label>
           <label htmlFor="image2">
             <img className='w-20' src={!image2 ? assets.upload_area : URL.createObjectURL(image2)} alt="" />
-            <input onChange={(e)=>setImage2(e.target.files[0])} type="file" id="image2" hidden/>
+            <input onChange={(e) => setImage2(e.target.files[0])} type="file" id="image2" hidden />
           </label>
           <label htmlFor="image3">
             <img className='w-20' src={!image3 ? assets.upload_area : URL.createObjectURL(image3)} alt="" />
-            <input onChange={(e)=>setImage3(e.target.files[0])} type="file" id="image3" hidden/>
+            <input onChange={(e) => setImage3(e.target.files[0])} type="file" id="image3" hidden />
           </label>
           <label htmlFor="image4">
             <img className='w-20' src={!image4 ? assets.upload_area : URL.createObjectURL(image4)} alt="" />
-            <input onChange={(e)=>setImage4(e.target.files[0])} type="file" id="image4" hidden/>
+            <input onChange={(e) => setImage4(e.target.files[0])} type="file" id="image4" hidden />
           </label>
         </div>
       </div>
@@ -100,13 +152,13 @@ const Add = ({token}) => {
       {/* Product Name (unchanged) */}
       <div className='w-full'>
         <p className='mb-2'>Product name</p>
-        <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Type here' required/>
+        <input onChange={(e) => setName(e.target.value)} value={name} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Type here' required />
       </div>
 
       {/* Product Description (unchanged) */}
       <div className='w-full'>
         <p className='mb-2'>Product description</p>
-        <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required/>
+        <textarea onChange={(e) => setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2' type="text" placeholder='Write content here' required />
       </div>
 
       {/* Category/Price Section (unchanged) */}
@@ -114,19 +166,19 @@ const Add = ({token}) => {
         <div>
           <p className='mb-2'>Product category</p>
           <select onChange={(e) => setCategory(e.target.value)} className='w-full px-3 py-2'>
-              <option value="Men">Men</option>
-              <option value="Women">Women</option>
-              <option value="Kids">Boys</option>
-              <option value="Kids">Girls</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Kids">Boys</option>
+            <option value="Kids">Girls</option>
           </select>
         </div>
         <div>
           <p className='mb-2'>Sub category</p>
           <select onChange={(e) => setSubCategory(e.target.value)} className='w-full px-3 py-2'>
-              <option value="Topwear">Topwear</option>
-              <option value="Bottomwear">Bottomwear</option>
-              <option value="Winterwear">Winterwear</option>
-              <option value="Winterwear">Summerwear</option>
+            <option value="Topwear">Topwear</option>
+            <option value="Bottomwear">Bottomwear</option>
+            <option value="Winterwear">Winterwear</option>
+            <option value="Winterwear">Summerwear</option>
           </select>
         </div>
         <div>
@@ -139,8 +191,8 @@ const Add = ({token}) => {
       <div>
         <p className='mb-2'>Product Sizes</p>
         <div className='flex gap-3'>
-          {["S", "M", "L", "XL", "XXL","XXXL"].map(size => (
-            <div key={size} onClick={()=>setSizes(prev => 
+          {["S", "M", "L", "XL", "XXL", "XXXL","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","Oversized"].map(size => (
+            <div key={size} onClick={() => setSizes(prev =>
               prev.includes(size) ? prev.filter(item => item !== size) : [...prev, size]
             )}>
               <p className={`${sizes.includes(size) ? "bg-pink-100" : "bg-slate-200"} px-3 py-1 cursor-pointer`}>
@@ -156,12 +208,12 @@ const Add = ({token}) => {
         <p className='mb-2'>Available Colors</p>
         <div className='flex flex-wrap gap-2'>
           {availableColors.map(color => (
-            <div 
-              key={color} 
+            <div
+              key={color}
               onClick={() => handleColorToggle(color)}
               className={`flex items-center gap-1 px-3 py-1 cursor-pointer rounded-full ${colors.includes(color) ? "bg-pink-100" : "bg-slate-200"}`}
             >
-              <div 
+              <div
                 className="w-4 h-4 rounded-full border border-gray-300"
                 style={{ backgroundColor: color.toLowerCase() }}
               ></div>

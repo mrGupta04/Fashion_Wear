@@ -126,8 +126,8 @@ const Contact = () => {
               <FiClock className="text-amber-600 text-2xl" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Working Hours</h3>
-            <p className="text-gray-600 mb-2">Mon-Fri: 9am - 6pm</p>
-            <p className="text-gray-600 mb-4">Sat: 10am - 3pm</p>
+            <p className="text-gray-600 mb-2">Everyday: 9am - 9pm</p>
+            <p className="text-gray-600 mb-4">Every day open</p>
             <a href="#" className="text-amber-600 font-medium flex items-center group">
               Reach to us
               <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
